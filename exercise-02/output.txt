@@ -1,0 +1,4 @@
+File:       input.txt
+Lines:      3
+Words:      17
+Characters: 113
