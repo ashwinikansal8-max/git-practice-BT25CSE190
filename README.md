@@ -4,7 +4,7 @@
 
 **Roll number:** BT25CSE190
 
-**Section:** [Placeholder]
+**Section:** CSE c2
 
 ## Purpose
 
