@@ -1,0 +1,3 @@
+Bash scripts can count words and lines.
+Git keeps project changes organized.
+Small examples make testing easier.
