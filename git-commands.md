@@ -7,17 +7,21 @@ stage the unrelated untracked diff transcript in the worktree.
 
 | Command | Purpose and use |
 |---|---|
+| `git init -b main` | Initialize a new repository with `main` as its initial branch (initial repository creation was already completed). |
 | `git status --short --branch` | Check the current branch and worktree before editing or committing. |
 | `git log --oneline --graph --decorate -15` | Inspect recent history and branch relationships. |
 | `git add <specific-files>` | Stage only the files for the current exercise. |
 | `git diff --cached` | Review staged content before committing. |
 | `git commit -m "<message>"` | Record a meaningful exercise change. |
+| `git remote add origin <repository-url>` | Add the GitHub remote when setting up a new local clone (the existing `origin` was preserved). |
+| `git remote -v` | Inspect the configured remote without changing it. |
 
 The preserved history starts with `55320b2` (initial structure), followed by
 `6ca037c` (Exercise 01) and merge commit `f3fe9b0` (Exercise 01 pull request).
 Exercise 02 is recorded locally as `2b25b4c`.
 The Exercise 03 baseline, formal variant, casual variant, and conflict
 resolution are `c651a77`, `949dd9a`, `112719f`, and `87385f7`, respectively.
+The Exercise 04 implementation commit is `d9c297f`.
 
 ## Branching and remotes
 
@@ -27,9 +31,9 @@ resolution are `c651a77`, `949dd9a`, `112719f`, and `87385f7`, respectively.
 | `git switch -c feature/exercise-03-merge-conflict` | Start Exercise 03 from the Exercise 02 branch so its PR can follow Exercise 02. |
 | `git switch -c exercise-03-formal` | Create the formal greeting variant from the shared Exercise 03 base. |
 | `git switch feature/exercise-03-merge-conflict` | Return to the feature branch for the contrasting edit and merge. |
-| `git remote -v` | Inspect the configured remote without changing it. |
-| `git push --dry-run origin feature/exercise-02-wordstats` | Checked the proposed push; it reported a new remote branch but did not publish it. |
-| `git push -u origin <feature-branch>` | Publish a branch and configure its upstream (not run; GitHub workflow is blocked by missing authenticated write access). |
+| `git push --dry-run origin feature/exercise-02-wordstats` | Checked the proposed Exercise 02 push without publishing it. |
+| `git push -u origin feature/exercise-02-wordstats` | Published the Exercise 02 branch; its remote ref was verified at `2b25b4c6a9bc22c1e7d4d4636564aaf1619c3706`. |
+| `git push -u origin <feature-branch>` | Publish a subsequent feature branch and configure its upstream. |
 | `git pull --ff-only origin main` | Update a local branch without creating an unexpected merge commit. |
 
 ## Exercise 03: genuine merge conflict
@@ -72,18 +76,27 @@ merge was committed as `87385f7`. The formal branch is retained locally as
 
 ## Exercise 04: isolated Git operations
 
-The Exercise 04 implementation and its Git Bash test results are being added on
-`feature/exercise-04-git-operations`; the script instructions will be finalized
-there.
+Run the demonstration from the repository root in Git Bash:
+
+```bash
+bash exercise-04/sandbox_demo.sh
+```
+
+It initializes a unique temporary repository, sets demo-only user configuration
+there, saves and restores a change with `git stash`, makes an undo commit with
+`git revert`, discards an unstaged edit with `git restore`, and creates an
+annotated tag with `git tag -a`. Its cleanup removes only the generated
+temporary repository, not assignment files. The expected standard output is in
+`exercise-04/output.txt`.
 
 ## GitHub issues and pull requests
 
 The Exercise 01 issue [#1](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/1)
 and merged pull request [#2](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/2)
-are existing records. No GitHub write operation was performed for Exercises
-02–04: `gh` is not installed, and the available browser session is signed out.
-Do not treat the following as executed commands; they are the pending workflow
-once authenticated GitHub write access is available:
+are existing records. Exercise 02's branch push is complete, but issues and
+pull requests for Exercises 02–04 are not created. The Exercise 03 and 04
+branches still need pushing. `gh` is not installed, and the available browser
+session is signed out. The following are pending, not executed:
 
 ```bash
 gh issue create --title "Exercise 02: Word statistics" --body "<exercise details>"
@@ -94,7 +107,8 @@ git pull --ff-only origin main
 ```
 
 Repeat with the relevant exercise branch and issue for Exercises 03 and 04.
-Use the real issue number in `Closes #...`; do not guess IDs or URLs.
+Use the real issue number in `Closes #...`; do not guess IDs or URLs. A pull
+request must be reviewed and its required checks must pass before merging.
 
 ## Final assignment tag
 
