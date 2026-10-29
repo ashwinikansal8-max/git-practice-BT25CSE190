@@ -33,6 +33,8 @@ The Exercise 04 implementation commit is `d9c297f`.
 | `git switch feature/exercise-03-merge-conflict` | Return to the feature branch for the contrasting edit and merge. |
 | `git push --dry-run origin feature/exercise-02-wordstats` | Checked the proposed Exercise 02 push without publishing it. |
 | `git push -u origin feature/exercise-02-wordstats` | Published the Exercise 02 branch; its remote ref was verified at `2b25b4c6a9bc22c1e7d4d4636564aaf1619c3706`. |
+| `git push -u origin feature/exercise-03-merge-conflict` | Published the Exercise 03 branch; its remote ref was verified at `272130b11d0bf8c57267a064389426974a4cad3e`. |
+| `git push -u origin feature/exercise-04-git-operations` | Published the Exercise 04 branch; its remote ref was verified at `030c157c6454c60a826dbeb3b0fd431428aa0704`. |
 | `git push -u origin <feature-branch>` | Publish a subsequent feature branch and configure its upstream. |
 | `git pull --ff-only origin main` | Update a local branch without creating an unexpected merge commit. |
 
@@ -93,10 +95,10 @@ temporary repository, not assignment files. The expected standard output is in
 
 The Exercise 01 issue [#1](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/1)
 and merged pull request [#2](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/2)
-are existing records. Exercise 02's branch push is complete, but issues and
-pull requests for Exercises 02–04 are not created. The Exercise 03 and 04
-branches still need pushing. `gh` is not installed, and the available browser
-session is signed out. The following are pending, not executed:
+are existing records. The Exercise 02, 03, and 04 feature branches are pushed,
+but their issues and pull requests are not created. `gh` is not installed, and
+the available browser session is signed out. The following are pending, not
+executed:
 
 ```bash
 gh issue create --title "Exercise 02: Word statistics" --body "<exercise details>"
