@@ -1,1 +1,2 @@
-Greeting: Hello
+Greeting: Good day
+Casual greeting: Hey
