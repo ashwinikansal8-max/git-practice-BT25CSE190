@@ -26,6 +26,9 @@ as `2b25b4c`, with documentation commit `3abf89b`; PR #4 is merged. Exercise
 03 includes implementation commit `c651a77`, variant commits `112719f` and
 `949dd9a`, merge resolution `87385f7`, and synchronization merge `befd01d`.
 PR #7 merged the Exercise 03 work into main at `33cabdc`.
+Exercise 04 was implemented in `d9c297f`; its branch synchronization merge is
+`6ac2f8c`. PR #8 merged the finished assignment exercises into main at
+`ef615391c1025fec3dca57ba352aca76b904d544`.
 
 ## Branching and publishing
 
@@ -89,16 +92,19 @@ temporary directory on exit and does not change this assignment repository.
 - Exercise 01: [issue #1](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/1), [merged PR #2](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/2).
 - Exercise 02: [issue #3](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/3), [merged PR #4](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/4). PR #4 includes `Closes #3`.
 - Exercise 03: [issue #5](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/5), [merged PR #7](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/7). PR #7 includes `Closes #5`.
-- Exercise 04: [issue #6](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/6); its pull request is pending.
+- Exercise 04: [issue #6](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/6), [merged PR #8](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/8). PR #8 includes `Closes #6`.
 
-Create a pull request by comparing its feature branch against `main`. Include
-`Closes #<issue-number>` in the PR body to link the issue. Review the file
-changes and available checks before merging.
+Create a pull request by comparing its feature branch against `main`; include
+`Closes #<issue-number>` in the PR body to link its issue. Review changed files,
+mergeability, and checks before merging. PR #8 was reviewed: it was mergeable
+with no conflicts, and the repository had no configured checks or required
+reviews. The Exercise 04 script matched its expected output on two runs before
+the PR was merged.
 
 ## Final assignment tag
 
-Create and publish the annotated `assignment-v1.0.0` tag only after every
-exercise PR has merged and the final `main` branch is verified:
+After all exercise PRs were merged and final `main` was verified, create and
+publish the annotated `assignment-v1.0.0` tag:
 
 ```bash
 git tag -a assignment-v1.0.0 -m "Complete Git practice assignment"
