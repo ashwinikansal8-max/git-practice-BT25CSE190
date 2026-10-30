@@ -4,25 +4,24 @@
 
 **Roll number:** BT25CSE190
 
-**Section:** [Placeholder]
+**Section:** CSE c2
 
 ## Purpose
 
-This repository practices Git and GitHub workflows through small Bash programs
-that run in Git Bash on Windows.
+Practice Git and GitHub workflows using small Bash programs compatible with
+Git Bash on Windows.
 
 ## Exercises
 
 | Folder | Topic | Program | Issue | Pull request |
 |---|---|---|---|---|
-| `exercise-01` | First commits and input validation | `greet.sh` | [#1](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/1) | [#2](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/2) (merged) |
-| `exercise-02` | Feature branch and text statistics | `wordstats.sh` | Not created | Not created |
-| `exercise-03` | Merge conflict and configuration files | `show_greeting.sh` | Not created | Not created |
-| `exercise-04` | Stash, restore, revert, and annotated tags | `sandbox_demo.sh` | Not created | Not created |
+| `exercise-01` | Greeting and input validation | `greet.sh` | [#1](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/1) | [#2](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/2) (merged) |
+| `exercise-02` | Feature branch and text statistics | `wordstats.sh` | [#3](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/3) | [#4](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/4) (merged) |
+| `exercise-03` | Configured greeting and merge conflict | `show_greeting.sh` | [#5](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/5) | [#7](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/7) (merged) |
+| `exercise-04` | Stash, restore, revert, and annotated tags | `sandbox_demo.sh` | [#6](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/6) | Pending |
 
-The Exercise 02 branch is pushed. Issues and pull requests for Exercises 02–04
-remain pending; links will be added only after those GitHub records exist. No
-issue numbers or URLs are guessed.
+PR #4 closes issue #3; PR #7 closes issue #5. Both are merged. Exercise 04's
+pull request will be linked here after it is created and merged.
 
 ## Repository structure
 
@@ -47,9 +46,9 @@ exercise-04/
     output.txt
 ```
 
-## Run the exercises
+## Run in Git Bash
 
-Open Git Bash at the repository root. Bash scripts do not need to be compiled:
+From the repository root:
 
 ```bash
 bash exercise-01/greet.sh exercise-01/input.txt
@@ -68,21 +67,21 @@ Words:      17
 Characters: 113
 ```
 
-Exercise 03 reads the resolved greeting settings and prints:
+See `exercise-02/output.txt` for Exercise 02. Exercise 03 prints:
 
 ```text
 Greeting: Good day
 Casual greeting: Hey
 ```
 
-Exercise 04 creates and removes an isolated temporary Git repository and
-demonstrates stash, restore, revert, and an annotated tag. See
-`exercise-04/output.txt` for its stable sample output.
+Exercise 04 runs the Git operations in its own temporary repository and prints
+the results in `exercise-04/output.txt`. The script cleans up only its own
+temporary repository.
 
-See [git-commands.md](git-commands.md) for the recorded Git workflow and the
-Exercise 03 conflict resolution.
+See [git-commands.md](git-commands.md) for the documented Git workflow and the
+real Exercise 03 merge conflict and resolution.
 
-## Release tag
+## Final tag
 
-The planned final annotated tag is `assignment-v1.0.0`. It will be created only
-after all exercise pull requests are merged; it has not been created yet.
+The planned annotated tag is `assignment-v1.0.0`. It will be created after
+Exercise 04 is merged and `main` passes final verification.
