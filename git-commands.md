@@ -1,7 +1,8 @@
 # Git commands used
 
 Run local commands from the repository root in Git Bash unless noted. Stage
-specific paths only; unrelated untracked files are not part of this assignment.
+specific assignment paths only; unrelated untracked files are not part of this
+work.
 
 ## Repository setup and history
 
@@ -9,60 +10,64 @@ specific paths only; unrelated untracked files are not part of this assignment.
 |---|---|
 | `git init -b main` | Initialize a repository with `main` as its initial branch. |
 | `git remote add origin <repository-url>` | Add the GitHub remote when setting up a repository. |
-| `git remote -v` | Inspect the configured remotes. |
+| `git remote -v` | Inspect configured remotes. |
 | `git status --short --branch` | Check the current branch and worktree. |
 | `git log --oneline --graph --decorate -15` | Inspect recent history and branch relationships. |
 | `git add <specific-files>` | Stage only the intended exercise files. |
 | `git diff --cached` | Review staged changes before committing. |
 | `git commit -m "<message>"` | Record a meaningful change. |
 | `git fetch origin` | Update remote-tracking refs without changing the current branch. |
-| `git pull --ff-only origin main` | Synchronize local `main` without creating an unexpected merge commit. |
-| `git push -u origin <feature-branch>` | Publish a feature branch and set its upstream. |
+| `git pull --ff-only origin main` | Synchronize local `main` without an unexpected merge commit. |
+| `git push -u origin <feature-branch>` | Publish a branch and set its upstream. |
 
-The original commits are `55320b2` (initial structure), `6ca037c` (Exercise
-01), and `f3fe9b0` (Exercise 01 PR merge). Exercise 02 was committed as
-`2b25b4c`, then its documentation update as `3abf89b`; PR #4 is merged. The
-Exercise 03 implementation and actual conflict-resolution history are
-`c651a77`, `112719f`, `949dd9a`, and `87385f7`.
+The preserved history starts with `55320b2` (initial structure), `6ca037c`
+(Exercise 01), and `f3fe9b0` (Exercise 01 PR merge). Exercise 02 was committed
+as `2b25b4c`, with documentation commit `3abf89b`; PR #4 is merged. Exercise
+03 includes implementation commit `c651a77`, variant commits `112719f` and
+`949dd9a`, merge resolution `87385f7`, and synchronization merge `befd01d`.
+PR #7 merged the Exercise 03 work into main at `33cabdc`.
 
-## Exercise 03: real merge conflict
+## Branching and publishing
 
-The common starting line in `exercise-03/settings.conf` was `greeting=Hello`.
-On `exercise-03-formal`, it was changed to `greeting=Good day`. On
+| Command | Purpose |
+|---|---|
+| `git switch -c feature/exercise-02-wordstats` | Create the Exercise 02 branch (it already existed). |
+| `git switch -c feature/exercise-03-merge-conflict` | Create the Exercise 03 branch from the Exercise 02 work. |
+| `git switch -c exercise-03-formal` | Create the formal-greeting conflict variant. |
+| `git switch feature/exercise-03-merge-conflict` | Return to the feature branch for the contrasting edit and merge. |
+| `git switch -c feature/exercise-04-git-operations` | Create the Exercise 04 branch. |
+| `git merge --no-edit <branch>` | Merge a branch, creating a merge commit when required. |
+
+## Exercise 03: genuine merge conflict
+
+The shared `exercise-03/settings.conf` line began as `greeting=Hello`. On
+`exercise-03-formal`, it was changed to `greeting=Good day`; on
 `feature/exercise-03-merge-conflict`, the same line was changed to
-`greeting=Hey`. This command produced the actual content conflict:
+`greeting=Hey`. Running:
 
 ```bash
 git merge --no-edit exercise-03-formal
 ```
 
-Git reported a conflict, and `git status --short` showed
-`UU exercise-03/settings.conf`. The conflicted sides were `greeting=Hey` on
-`HEAD` and `greeting=Good day` on `exercise-03-formal`. The resolution retained
-both settings and removed Git's conflict markers:
+produced the real content conflict in `exercise-03/settings.conf`. Git reported
+`UU exercise-03/settings.conf`. The conflict was resolved by retaining both
+greetings and removing Git's conflict markers:
 
 ```text
 greeting=Good day
 casual_greeting=Hey
 ```
 
-The result was tested with `bash exercise-03/show_greeting.sh` and committed as
-`87385f7`. The formal variant branch is retained as `exercise-03-formal`.
+The resolved script output was tested and recorded in
+`exercise-03/output.txt`. The resolution commit is `87385f7`; the formal
+variant branch is retained as `exercise-03-formal`.
 
-After PR #4 merged into `main`, the Exercise 03 branch was updated with:
-
-```bash
-git switch main
-git pull --ff-only origin main
-git switch feature/exercise-03-merge-conflict
-git merge --no-edit origin/main
-```
-
-That update caused content conflicts in `README.md` and `git-commands.md`.
-During the merge, the updated `main` version of the README was kept to preserve
-the current section and merged Exercise 02 links; the feature-branch version of
-`git-commands.md` was kept to preserve the genuine conflict record. Both
-documents are being reconciled with the final links and status.
+After PR #4 merged into main, updating the Exercise 03 branch with
+`git merge --no-edit origin/main` caused additional documentation conflicts in
+`README.md` and `git-commands.md`. Both sides were inspected. The updated main
+README supplied the confirmed section value and merged Exercise 02 links; the
+feature documentation preserved the detailed Exercise 03 conflict record.
+Those contents were combined and the merge was recorded as `befd01d`.
 
 ## Exercise 04: isolated Git operations
 
@@ -77,25 +82,23 @@ configuration there, saves/restores an edit with `git stash`, adds an undo
 commit with `git revert`, discards an unstaged edit with `git restore`, and
 creates an annotated demo tag with `git tag -a`. It removes only its own
 temporary directory on exit and does not change this assignment repository.
+`exercise-04/output.txt` records the expected output.
 
 ## GitHub issues and pull requests
 
-Existing records:
-
 - Exercise 01: [issue #1](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/1), [merged PR #2](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/2).
-- Exercise 02: [closed issue #3](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/3), [merged PR #4](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/4). The pull request body links the issue with `Closes #3`.
-- Exercise 03: [issue #5](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/5); its pull request is pending.
+- Exercise 02: [issue #3](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/3), [merged PR #4](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/4). PR #4 includes `Closes #3`.
+- Exercise 03: [issue #5](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/5), [merged PR #7](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/7). PR #7 includes `Closes #5`.
 - Exercise 04: [issue #6](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/6); its pull request is pending.
 
-Pull requests are created through GitHub's compare page by selecting the base
-branch `main` and the feature branch as compare, then providing a title and a
-body containing `Closes #<issue-number>`. Review the changed files and checks
-before merging.
+Create a pull request by comparing its feature branch against `main`. Include
+`Closes #<issue-number>` in the PR body to link the issue. Review the file
+changes and available checks before merging.
 
-## Final tag
+## Final assignment tag
 
-Create and publish `assignment-v1.0.0` only after all exercise pull requests
-have been merged and `main` has been verified:
+Create and publish the annotated `assignment-v1.0.0` tag only after every
+exercise PR has merged and the final `main` branch is verified:
 
 ```bash
 git tag -a assignment-v1.0.0 -m "Complete Git practice assignment"

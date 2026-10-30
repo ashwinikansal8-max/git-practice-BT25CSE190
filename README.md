@@ -17,11 +17,11 @@ Git Bash on Windows.
 |---|---|---|---|---|
 | `exercise-01` | Greeting and input validation | `greet.sh` | [#1](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/1) | [#2](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/2) (merged) |
 | `exercise-02` | Feature branch and text statistics | `wordstats.sh` | [#3](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/3) | [#4](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/4) (merged) |
-| `exercise-03` | Configured greeting and merge conflict | `show_greeting.sh` | [#5](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/5) | Pending |
+| `exercise-03` | Configured greeting and merge conflict | `show_greeting.sh` | [#5](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/5) | [#7](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/7) (merged) |
 | `exercise-04` | Stash, restore, revert, and annotated tags | `sandbox_demo.sh` | [#6](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/6) | Pending |
 
-PR #4 closes issue #3 and is merged. The Exercise 03 and 04 issues are open;
-their pull requests are pending.
+PR #4 closes issue #3; PR #7 closes issue #5. Both are merged. Exercise 04's
+pull request will be linked here after it is created and merged.
 
 ## Repository structure
 
@@ -75,12 +75,13 @@ Casual greeting: Hey
 ```
 
 Exercise 04 runs the Git operations in its own temporary repository and prints
-the results in `exercise-04/output.txt`.
+the results in `exercise-04/output.txt`. The script cleans up only its own
+temporary repository.
 
 See [git-commands.md](git-commands.md) for the documented Git workflow and the
 real Exercise 03 merge conflict and resolution.
 
 ## Final tag
 
-The planned annotated tag is `assignment-v1.0.0`. It has not been created:
-Exercises 02–04 have not all been merged into `main`.
+The planned annotated tag is `assignment-v1.0.0`. It will be created after
+Exercise 04 is merged and `main` passes final verification.

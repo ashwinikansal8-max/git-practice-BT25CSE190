@@ -1,0 +1,18 @@
+--- git stash: save and restore unfinished work
+Stashed changes saved
+Working tree after stash: clean
+Stashed changes restored
+File after stash pop:
+line 1
+line 2
+--- git revert: undo a commit without rewriting history
+Reverted commit; recent history:
+Revert "Add temporary bad line"
+Add temporary bad line
+--- git restore: discard an unstaged edit
+File after restore:
+line 1
+line 2
+--- annotated tag: mark the demo state
+Tag object type: tag
+demo-v1.0
