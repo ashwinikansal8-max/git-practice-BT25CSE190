@@ -16,14 +16,12 @@ Git Bash on Windows.
 | Folder | Topic | Program | Issue | Pull request |
 |---|---|---|---|---|
 | `exercise-01` | Greeting and input validation | `greet.sh` | [#1](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/1) | [#2](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/2) (merged) |
-| `exercise-02` | Feature branch and text statistics | `wordstats.sh` | [#3](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/3) | [#4](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/4) (open) |
+| `exercise-02` | Feature branch and text statistics | `wordstats.sh` | [#3](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/3) | [#4](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/pull/4) (merged) |
 | `exercise-03` | Configured greeting and merge conflict | `show_greeting.sh` | [#5](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/5) | Pending |
 | `exercise-04` | Stash, restore, revert, and annotated tags | `sandbox_demo.sh` | [#6](https://github.com/ashwinikansal8-max/git-practice-BT25CSE190/issues/6) | Pending |
 
-PR #4 closes issue #3. Its branch is pushed and the local Git Bash test suite
-passes. This repository has no configured status checks; PR #4 is open and
-unmerged. Exercises 03 and 04 have issues but their pull requests remain
-pending.
+PR #4 closes issue #3 and is merged. The Exercise 03 and 04 issues are open;
+their pull requests are pending.
 
 ## Repository structure
 
